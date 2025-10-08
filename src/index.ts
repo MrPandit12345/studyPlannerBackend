@@ -1,6 +1,6 @@
-import { serve } from "@hono/node-server";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
+import { routes } from "./routes/index.js";
 
 const app = new Hono();
 
@@ -14,8 +14,6 @@ app.use(
   })
 );
 
-app.get("/", (c) => {
-  return c.text("Hello Hono!");
-});
+app.route("/",routes());
 
 export default app;
